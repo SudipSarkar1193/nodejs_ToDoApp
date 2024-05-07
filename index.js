@@ -32,5 +32,5 @@ app.use(errorHandlerFunc)
 connectDB();
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server running at http://localhost:${process.env.PORT} in ${process.env.NODE_ENV }`);
+  console.log(`Server running at http://localhost:${process.env.PORT}`);
 }); 

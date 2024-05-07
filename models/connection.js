@@ -19,7 +19,7 @@ export default async function connectToMongoDB() {
     await mongoose.connect(process.env.MONGO_URI);
     console.log('Connected to MongoDB');
   } catch (error) {
-    if (error instanceof mongoose.Error.MongoServerError) {
+    if (error instanceof mongoose.Error && error.name === 'MongoServerError') {
       console.error('MongoServerError:=>', error.message);
     } else {
       console.error('Error:=>', error.message);
