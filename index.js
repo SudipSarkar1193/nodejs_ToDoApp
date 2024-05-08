@@ -25,6 +25,7 @@ app.use(
     credentials: true,
   })
 );
+console.log(process.env.FRONTEND_URL);
 
 // Using routes
 app.use("/api/v1/users", userRoutes);
