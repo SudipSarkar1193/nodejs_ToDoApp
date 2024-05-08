@@ -11,8 +11,6 @@ router.post('/login',handleLogin );
 router.get('/logout',handleLogout );
 router.get('/profile',authenticate,getProfileData );
 
-router.get('/about', (req, res) => {
-  res.send('About Page');
-});
+
 
 export default router;

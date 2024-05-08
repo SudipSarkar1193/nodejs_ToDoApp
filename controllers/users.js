@@ -37,7 +37,7 @@ export const handleRegistration = async (req, res,next) => {
 
     if(user){
       const isSameName = user.name === name
-      next(new CustomError("User Already exists "+`${isSameName?"":"with another username"}` , 400 ))
+      next(new CustomError("User Already exists "+`${isSameName?"":"with another username"}` , 404 ))
     }
 
     //Encoding the password
