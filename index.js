@@ -31,6 +31,8 @@ console.log(process.env.FRONTEND_URL);
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/task", taskRoutes);
 
+app.use(errorHandlerFunc)
+
 app.get("/", (req, res) => {
   res.send("Namaskar🙏");
 });
@@ -38,5 +40,5 @@ app.get("/", (req, res) => {
 connectDB();
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server running at http://localhost:${process.env.FRONTEND_URL}`);
+  console.log(`Server running at ${process.env.FRONTEND_URL}`);
 }); 
