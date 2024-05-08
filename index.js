@@ -10,24 +10,29 @@ import cors from 'cors'
 const app = express();
 
 
-config({ path: './data/config.env' })
 
-//app.use(urlencoded({extended:true}))
-app.use(express.json()) ;
-app.use(cookieParser()) ;
+config({
+  path: "./data/config.env",
+});
 
-app.use(cors({ 
-  origin:[process.env.FRONTEND_URL],
-  methods:'GET,POST,PUT,DELETE',
-  credentials:true,
-}))
+// Using Middlewares
+app.use(express.json());
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
+// Using routes
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/task", taskRoutes);
 
-app.use("/api/v1/users",userRoutes);
-app.use("/api/v1/task",taskRoutes);
-//Error handling
-app.use(errorHandlerFunc)
-
+app.get("/", (req, res) => {
+  res.send("Namaskar🙏");
+});
 
 connectDB();
 
