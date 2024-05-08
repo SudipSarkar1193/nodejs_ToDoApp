@@ -53,7 +53,7 @@ export const handleRegistration = async (req, res,next) => {
 
     })
 
-    setCookie(user,req,res,201,`Hey ${user.name.split(' ')[0]},\nYou registerd suceesfully😉`);
+    setCookie(user,req,res,201,`Hey ${user.name.split(' ')[0]},\nYou registerd successfully😉`);
     } catch (error) {
       next(error)
     }
